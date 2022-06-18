@@ -18,5 +18,8 @@
   "homepage": "https://github.com/rakshit087/polygon-fellowship#readme",
   "devDependencies": {
     "hardhat": "^2.9.9"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1"
   }
 }
