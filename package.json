@@ -1,0 +1,22 @@
+{
+  "name": "polygon-fellowship",
+  "version": "1.0.0",
+  "description": "Seperate branches have been created for each week's work.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rakshit087/polygon-fellowship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rakshit087/polygon-fellowship/issues"
+  },
+  "homepage": "https://github.com/rakshit087/polygon-fellowship#readme",
+  "devDependencies": {
+    "hardhat": "^2.9.9"
+  }
+}
