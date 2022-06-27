@@ -1,14 +1,13 @@
 async function main() {
-    const HelloWorld = await ethers.getContractFactory("HelloWorld");
- 
-    // Start deployment, returning a promise that resolves to a contract object
-    const hello_world = await HelloWorld.deploy("Hello World!");
-    console.log("Contract deployed to address:", hello_world.address);
- }
- 
- main()
-   .then(() => process.exit(0))
-   .catch(error => {
-     console.error(error);
-     process.exit(1);
-   });
+  const DeadMan = await ethers.getContractFactory("DeadMan");
+  // Start deployment, returning a promise that resolves to a contract object
+  const dead_man = await DeadMan.deploy("Dead Man");
+  console.log("Contract deployed to address:", dead_man.address);
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
