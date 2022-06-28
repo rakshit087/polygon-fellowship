@@ -103,5 +103,6 @@ dist
 # TernJS port file
 .tern-port
 
-#artifacts
+#artifacts and cache
 artifacts
+cache
