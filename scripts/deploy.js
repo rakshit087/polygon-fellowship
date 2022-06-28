@@ -1,7 +1,7 @@
 async function main() {
   const DeadMan = await ethers.getContractFactory("DeadMan");
   // Start deployment, returning a promise that resolves to a contract object
-  const dead_man = await DeadMan.deploy("Dead Man");
+  const dead_man = await DeadMan.deploy("DeadMan");
   console.log("Contract deployed to address:", dead_man.address);
 }
 
