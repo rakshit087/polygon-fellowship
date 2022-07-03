@@ -14,9 +14,7 @@ contract PriceConsumerV3 {
     }
 
     function getLatestPrice() public view returns (int256) {
-        (, int256 price, , , ) = priceFeed.latestRoundData();
-        //We are returning INR / ETH
-        //Keeping INR / USD constant since not available in Testnet
-        return (price / 10**18) * 78;
+        (,int256 price,,,) = priceFeed.latestRoundData();
+        return ((price / 10**8)*78);
     }
 }
