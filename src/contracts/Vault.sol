@@ -33,11 +33,24 @@ contract Vault {
 
     //Function to withdraw collateral from vault and return debt
     function withdraw() public {
-        require(token.balanceOf(msg.sender) >= vaults[msg.sender].debt, "Insufficient balance");
+        require(
+            token.balanceOf(msg.sender) >= vaults[msg.sender].debt,
+            "Insufficient balance"
+        );
         uint256 _collateral = vaults[msg.sender].collateral;
         uint256 _debt = vaults[msg.sender].debt;
         payable(msg.sender).transfer(_collateral);
         vaults[msg.sender].collateral = 0;
-        token.burnFrom(msg.sender,_debt);
+        token.burnFrom(msg.sender, _debt);
+    }
+
+    //View function to get collateral in vault
+    function getCollateral() public view returns (uint256) {
+        return vaults[msg.sender].collateral;
+    }
+
+    //View function to get debt in vault
+    function getDebt() public view returns (uint256) {
+        return vaults[msg.sender].debt;
     }
 }
