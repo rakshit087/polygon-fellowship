@@ -1,14 +1,29 @@
 async function main() {
-    const HelloWorld = await ethers.getContractFactory("HelloWorld");
- 
-    // Start deployment, returning a promise that resolves to a contract object
-    const hello_world = await HelloWorld.deploy("Hello World!");
-    console.log("Contract deployed to address:", hello_world.address);
- }
- 
- main()
-   .then(() => process.exit(0))
-   .catch(error => {
-     console.error(error);
-     process.exit(1);
-   });
+
+  const PriceConsumer = await ethers.getContractFactory("PriceConsumerV3");
+  const priceConsumer = await PriceConsumer.deploy();
+  await priceConsumer.deployed();
+  const priceConsumerAddress = priceConsumer.address;
+
+  const DINRToken = await ethers.getContractFactory("DINRToken");
+  const dinrToken = await DINRToken.deploy();
+  await dinrToken.deployed();
+  const dinrTokenAddress = dinrToken.address;
+
+  const Vault = await ethers.getContractFactory("Vault");
+  const vault = await Vault.deploy(dinrTokenAddress, priceConsumerAddress);
+  await vault.deployed();
+  const vaultAddress = vault.address;
+
+  await dinrToken.transferOwnership(vaultAddress);
+
+  console.log(`DINRToken address: ${dinrTokenAddress}`);
+  console.log(`Vault address: ${vaultAddress}`);
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
