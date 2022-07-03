@@ -8,7 +8,7 @@ export const Navbar = ({ isDarkMode, setIsDarkMode }) => {
       <AppBar position="static" color="default">
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            Lend3r
+            MyApp
           </Typography>
           <IconButton
             color="inherit"

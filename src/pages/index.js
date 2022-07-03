@@ -1,3 +1,4 @@
+import { Box } from "@mui/system";
 import Head from "next/head";
 
 export default function Home() {
@@ -10,7 +11,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>MyApp</h1>
+        <Box mx={3}>
+          <p>App Content</p>
+        </Box>
       </main>
     </div>
   );
