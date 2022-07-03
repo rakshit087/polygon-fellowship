@@ -41,7 +41,8 @@ contract Vault {
         uint256 _debt = vaults[msg.sender].debt;
         payable(msg.sender).transfer(_collateral);
         vaults[msg.sender].collateral = 0;
-        token.burnFrom(msg.sender, _debt);
+        token.burn(msg.sender, _debt);
+        vaults[msg.sender].debt = 0;
     }
 
     //View function to get collateral in vault
