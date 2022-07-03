@@ -19,6 +19,7 @@ async function main() {
 
   console.log(`DINRToken address: ${dinrTokenAddress}`);
   console.log(`Vault address: ${vaultAddress}`);
+  console.log(`PriceConsumer address: ${priceConsumerAddress}`);
 }
 
 main()
