@@ -5,7 +5,7 @@ import { Navbar } from "../layouts/Navbar";
 import { darkTheme, lightTheme } from "../utilities/theme";
 
 function MyApp({ Component, pageProps }) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
   return (
     <CssBaseline>
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
