@@ -1,4 +1,4 @@
-import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, IconButton, Toolbar, Typography } from "@mui/material";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 
@@ -20,6 +20,7 @@ export const Navbar = ({ isDarkMode, setIsDarkMode }) => {
               <LightModeIcon fontSize="medium" color="primary" />
             )}
           </IconButton>
+          <Button variant="contained" size="small" sx={{ml:2}}>Connect</Button>
         </Toolbar>
       </AppBar>
     </Box>
