@@ -1,5 +1,7 @@
 import { ethers } from "ethers";
 
+const vaultAddress = "0x0000000000000000000000000000000000000000";
+
 export const Web3Service = {
   connect: async () => {
     const eth = await window.ethereum;
