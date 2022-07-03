@@ -22,7 +22,7 @@ contract Vault {
     }
 
     //Function to deposit collateral to vault and get debt
-    function deposit() public payable {
+    function borrowDINR() public payable {
         int256 _ethPrice = priceConsumer.getLatestPrice();
         uint256 _collateral = msg.value;
         uint256 _debt = _collateral * uint256(_ethPrice);
@@ -32,7 +32,7 @@ contract Vault {
     }
 
     //Function to withdraw collateral from vault and return debt
-    function withdraw() public {
+    function returnDINR() public {
         require(
             token.balanceOf(msg.sender) >= vaults[msg.sender].debt,
             "Insufficient balance"
