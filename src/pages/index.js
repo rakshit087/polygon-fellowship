@@ -1,5 +1,6 @@
-import { Box } from "@mui/system";
+import { Box, Fab } from "@mui/material";
 import Head from "next/head";
+import AddIcon from "@mui/icons-material/Add";
 
 export default function Home() {
   return (
@@ -12,10 +13,22 @@ export default function Home() {
 
       <main>
         <Box
-          mx={3}
-          sx={{ px: { xs: 1, sm: 10, md: 15, lg: 32 }, my: { xs: 5, md: 10 } }}
+          sx={{
+            px: { xs: "1.5rem", sm: "10rem", md: "6.5rem", lg: "13.5rem" },
+            my: { xs: 5, md: 10 },
+          }}
         >
-          <p>App Content</p>
+          <Fab
+            color="primary"
+            aria-label="add"
+            sx={{
+              position: "absolute",
+              bottom: { xs: "1rem", md: "2rem" },
+              right: { xs: "1.5rem", sm: "10rem", md: "6.5rem", lg: "13.5rem" },
+            }}
+          >
+            <AddIcon />
+          </Fab>
         </Box>
       </main>
     </div>
