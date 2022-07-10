@@ -1,4 +1,8 @@
 import { ethers } from "ethers";
+import abiFile from "../artifacts/src/contracts/KueContract.sol/KueContract.json";
+
+const address = "0x33A7581eA7c6f7C3CED58A1c38f0c4194f832ba8";
+const abi = abiFile.abi;
 
 export const Web3Service = {
   //Add event listeners
@@ -43,5 +47,14 @@ export const Web3Service = {
     const signer = provider.getSigner();
     const wallet = await signer.getAddress();
     return wallet;
+  },
+
+  createPost: async (cid, caption) => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(address, abi, signer);
+    const tx = await contract.createPost(cid, caption);
+    const receipt = await tx.wait();
+    return receipt;
   },
 };

@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { PostButton } from "../components/PostButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { Web3Service } from "../services/Web3Service";
 import { IPFSService } from "../services/IPFSService";
 import { useSnackbar } from "notistack";
 
@@ -34,7 +35,7 @@ export const MakePost = ({ open, setOpen }) => {
         }}
       >
         <LinearProgress
-          value={"100%"}
+          value={100}
           variant={loading ? "indeterminate" : "determinate"}
         />
         <Box
@@ -66,10 +67,12 @@ export const MakePost = ({ open, setOpen }) => {
               onClick={async () => {
                 enqueueSnackbar("Posting...");
                 setLoading(true);
-                const url = await IPFSService.addFile(image);
+                const cid = await IPFSService.addFile(image);
+                const receipt = await Web3Service.createPost(cid, caption);
                 setLoading(false);
                 setThumbnail(null);
                 setImage(null);
+                enqueueSnackbar("Your Post has been posted! 🎉");
               }}
             >
               {loading ? "Posting..." : "Post"}

@@ -4,7 +4,7 @@ export const IPFSService = {
   addFile: async (file) => {
     const ipfs = create('https://ipfs.infura.io:5001/api/v0')
     const added = await ipfs.add(file)
-    const url = `https://ipfs.infura.io/ipfs/${added.path}`
-    return url
+    const cid = added.path;
+    return cid;
   },
 };
