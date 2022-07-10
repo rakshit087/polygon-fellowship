@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import abiFile from "../artifacts/src/contracts/KueContract.sol/KueContract.json";
 
-const address = "0x33A7581eA7c6f7C3CED58A1c38f0c4194f832ba8";
+const address = "0x31c80D286A9C2b9b450F841D4E8eAceF9cC9e9a6";
 const abi = abiFile.abi;
 
 export const Web3Service = {
@@ -56,5 +56,21 @@ export const Web3Service = {
     const tx = await contract.createPost(cid, caption);
     const receipt = await tx.wait();
     return receipt;
+  },
+
+  getPost: async (id) => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(address, abi, signer);
+    const posts = await contract.getPost(id);
+    return posts;
+  },
+
+  getLatestPosts: async (page) => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(address, abi, signer);
+    const getLatestPosts = await contract.getLatestPosts(page);
+    return getLatestPosts;
   },
 };
