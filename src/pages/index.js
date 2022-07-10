@@ -11,7 +11,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <Box mx={3}>
+        <Box
+          mx={3}
+          sx={{ px: { xs: 1, sm: 10, md: 15, lg: 32 }, my: { xs: 5, md: 10 } }}
+        >
           <p>App Content</p>
         </Box>
       </main>
