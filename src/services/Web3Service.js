@@ -1,7 +1,7 @@
 import { ethers } from "ethers";
 import abiFile from "../artifacts/src/contracts/KueContract.sol/KueContract.json";
 
-const address = "0x31c80D286A9C2b9b450F841D4E8eAceF9cC9e9a6";
+const address = "0xd762625b36501Eee135a54B771aBef64BeeA8b64";
 const abi = abiFile.abi;
 
 export const Web3Service = {

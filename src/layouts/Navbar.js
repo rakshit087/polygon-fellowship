@@ -6,7 +6,7 @@ import { ConnectButton } from "../components/ConnectButton";
 export const Navbar = ({ isDarkMode, setIsDarkMode }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="default" sx={{px:{xs:1, sm:5, md:10, lg:24}}}>
+      <AppBar position="fixed" color="default" sx={{px:{xs:1, sm:5, md:10, lg:24}}}>
         <Toolbar>
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
             KueSocial

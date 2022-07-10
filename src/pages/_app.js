@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
         <RecoilRoot>
           <SnackbarProvider maxSnack={1}>
-            <Paper sx={{ minHeight: "100vh" }}>
+            <Paper sx={{ height: "100vh", overflow:"auto" }}>
               <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
               <Component {...pageProps} isDarkMode={isDarkMode} />
             </Paper>
