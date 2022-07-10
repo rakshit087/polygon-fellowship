@@ -1,10 +1,8 @@
 import { Box, Button, CircularProgress, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 
-export const PostButton = () => {
+export const PostButton = ({ thumbnail, setThumbnail, setImage }) => {
   const [loading, setLoading] = useState(false);
-  const [image, setImage] = useState(null);
-  const [thumbnail, setThumbnail] = useState(null);
   return (
     <Box
       sx={{
@@ -14,9 +12,10 @@ export const PostButton = () => {
         alignItems: "center",
         backgroundImage: `url(${thumbnail})`,
         backgroundSize: "cover",
+        backgroundPosition: "center",
         width: "100%",
         height: "75vw",
-        maxHeight: "500px",
+        maxHeight: "400px",
       }}
     >
       {!thumbnail && (
@@ -29,7 +28,7 @@ export const PostButton = () => {
             component="label"
             color="primary"
             sx={{ mt: 3 }}
-            disabled={loading}
+            disabled={thumbnail}
           >
             Select an Image
             <input
@@ -40,10 +39,18 @@ export const PostButton = () => {
                 setLoading(true);
                 const file = e.target.files[0];
                 const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => {
-                  setThumbnail(reader.result);
-                };
+                const dataUrl = await new Promise((resolve, reject) => {
+                  reader.onload = () => resolve(reader.result);
+                  reader.onerror = (err) => reject(err);
+                  reader.readAsDataURL(file);
+                });
+                const arrayBuffer = await new Promise((resolve, reject) => {
+                  reader.onload = () => resolve(reader.result);
+                  reader.onerror = (err) => reject(err);
+                  reader.readAsArrayBuffer(file);
+                });
+                setThumbnail(dataUrl);
+                setImage(arrayBuffer);
               }}
             />
           </Button>
