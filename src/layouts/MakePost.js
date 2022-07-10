@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   Box,
   Button,
-  CircularProgress,
+  LinearProgress,
   IconButton,
   Modal,
   Paper,
@@ -12,13 +12,14 @@ import {
 import { PostButton } from "../components/PostButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { IPFSService } from "../services/IPFSService";
+import { useSnackbar } from "notistack";
 
 export const MakePost = ({ open, setOpen }) => {
   const [image, setImage] = useState(null);
   const [thumbnail, setThumbnail] = useState(null);
   const [caption, setCaption] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const { enqueueSnackbar } = useSnackbar();
   return (
     <Modal open={open} onClose={() => setOpen(false)} keepMounted>
       <Paper
@@ -29,14 +30,16 @@ export const MakePost = ({ open, setOpen }) => {
           width: "75vw",
           maxWidth: "400px",
           transform: "translate(-50%, -50%)",
-          borderRadius: "12px",
+          borderRadius: "0px",
         }}
       >
+        <LinearProgress
+          value={"100%"}
+          variant={loading ? "indeterminate" : "determinate"}
+        />
         <Box
           sx={{
             p: 2,
-            borderBottom: "solid 1px",
-            borderColor: "seconary.main",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -61,9 +64,12 @@ export const MakePost = ({ open, setOpen }) => {
               variant="contained"
               disabled={loading}
               onClick={async () => {
+                enqueueSnackbar("Posting...");
                 setLoading(true);
-                IPFSService.addFile(image);
+                const url = await IPFSService.addFile(image);
                 setLoading(false);
+                setThumbnail(null);
+                setImage(null);
               }}
             >
               {loading ? "Posting..." : "Post"}
