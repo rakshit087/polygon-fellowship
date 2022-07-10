@@ -44,13 +44,8 @@ export const PostButton = ({ thumbnail, setThumbnail, setImage }) => {
                   reader.onerror = (err) => reject(err);
                   reader.readAsDataURL(file);
                 });
-                const arrayBuffer = await new Promise((resolve, reject) => {
-                  reader.onload = () => resolve(reader.result);
-                  reader.onerror = (err) => reject(err);
-                  reader.readAsArrayBuffer(file);
-                });
                 setThumbnail(dataUrl);
-                setImage(arrayBuffer);
+                setImage(file);
               }}
             />
           </Button>
