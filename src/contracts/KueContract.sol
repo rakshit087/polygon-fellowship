@@ -8,6 +8,7 @@ contract KueContract {
         uint256 id;
         string image_cid;
         string caption;
+        address author;
     }
 
     struct user {
@@ -26,7 +27,7 @@ contract KueContract {
         external
     {
         totalPosts++;
-        post memory _post = post(totalPosts, _image_cid, _caption);
+        post memory _post = post(totalPosts, _image_cid, _caption, msg.sender);
         posts[totalPosts] = _post;
         users[msg.sender].posts.push(totalPosts);
     }
