@@ -1,12 +1,2 @@
-# Polygon Fellowship Assignments
-
-Seperate branches have been created for each week's work.
-
-* Week 1 ✅
-* Week 2 ✅
-* Week 3
-* Week 4
-* Week 5
-* Week 6
-* Week 7
-* Week 8
+The week 4's assignmet can be found here: https://github.com/rakshit087/KueSocial
+The site is live on Polygon Testnet and can be browsed here: https://kue-social.vercel.app/
