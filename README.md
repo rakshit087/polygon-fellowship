@@ -1,12 +1,4 @@
 # Polygon Fellowship Assignments
 
-Seperate branches have been created for each week's work.
-
-* Week 1 ✅
-* Week 2 ✅
-* Week 3
-* Week 4
-* Week 5
-* Week 6
-* Week 7
-* Week 8
+Week 3's assignment can be found here: https://github.com/rakshit087/lend3r
+The site is live on Rinkby network here: https://lend3r.vercel.app/
