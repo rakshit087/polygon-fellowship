@@ -1,12 +1,6 @@
 # Polygon Fellowship Assignments
 
-Seperate branches have been created for each week's work.
+## Week2: Writing a Deadman's Switch
 
-* Week 1 ✅
-* Week 2
-* Week 3
-* Week 4
-* Week 5
-* Week 6
-* Week 7
-* Week 8
+Basically if a user looses his account access, funds are lost. A deadman switch sends all the tokens to a specified address if the address is not active. That's deadman's switch. 
+The written smart contract, will send all of its balance to a pre-set address if the owner of that contract has not called a still_alive function on the contract in the last 10 blocks.
